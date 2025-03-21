@@ -40,6 +40,18 @@ sync:test:
   - from:
       type: column
       data:
+        column_name: ad_personalization
+    to:
+      field_name: click_conversion.consent.ad_personalization
+  - from:
+      type: column
+      data:
+        column_name: ad_user_data
+    to:
+      field_name: click_conversion.consent.ad_user_data
+  - from:
+      type: column
+      data:
         column_name: cet_timestamp
     to:
       field_name: click_conversion.conversion_date_time
@@ -75,4 +87,3 @@ sync:test:
       should_send_recovery: true
       options:
         threshold: 75
-  sync_behavior_family: mapRecords
