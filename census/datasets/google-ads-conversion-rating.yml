@@ -36,8 +36,7 @@ dataset:google-ads-conversion-rating:
     AS conversion_name\r\n        UNION ALL\r\n        SELECT 'Sales Qualified' AS
     stage_name, 'SFU: Sales Qualified Lead' AS conversion_name\r\n        UNION ALL\r\n
     \       SELECT 'Marketing Qualified' AS stage_name, 'SFU: Marketing Qualified
-    Lead' AS conversion_name) AS l\r\n        USING(stage_name)\r\nORDER BY cet_timestamp::TIMESTAMP
-    DESC"
+    Lead' AS conversion_name) AS l\r\n        USING(stage_name)\r\nORDER BY cet_timestamp::TIMESTAMP"
   description:
   icon:
   connection: connection:redshift-prod-emnify-dwh
