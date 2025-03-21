@@ -1,0 +1,8 @@
+---
+dataset:google-ads-conversion-rating:
+  type: sql
+  name: google_ads_conversion_rating
+  query: "SELECT *\r\nFROM marketing.dm_google_ads_conversion_rating_enhanced"
+  description:
+  icon:
+  connection: connection:redshift-prod-emnify-dwh
