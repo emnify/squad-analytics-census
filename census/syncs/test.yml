@@ -1,6 +1,6 @@
 ---
 sync:test:
-  paused: true
+  paused: false
   label: test
   behavior:
     operation: upsert
