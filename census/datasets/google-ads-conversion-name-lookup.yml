@@ -1,0 +1,30 @@
+---
+dataset:google-ads-conversion-name-lookup:
+  type: sql
+  name: google_ads_conversion_name_lookup
+  query: "SELECT 'Accepted' AS stage_name, 'SFU: Accepted' AS conversion_name\r\nUNION
+    ALL\r\nSELECT 'Converted' AS stage_name, 'SFU: Converted' AS conversion_name\r\nUNION
+    ALL\r\nSELECT 'SRL' AS stage_name, 'SFU: Sales Rejected Lead' AS conversion_name\r\nUNION
+    ALL\r\nSELECT 'MQL' AS stage_name, 'SFU: Marketing Qualified Lead' AS conversion_name\r\nUNION
+    ALL\r\nSELECT 'SDL' AS stage_name, 'SFU: Sales Disqualified Lead' AS conversion_name\r\nUNION
+    ALL\r\nSELECT 'Closed Lost' AS stage_name, 'SFU: Opportunity - Closed Lost' AS
+    conversion_name\r\nUNION ALL\r\nSELECT 'Closed Won' AS stage_name, 'SFU: Opportunity
+    - Closed Won' AS conversion_name\r\nUNION ALL\r\nSELECT 'Contract Sent' AS stage_name,
+    'SFU: Opportunity - Contract Sent' AS conversion_name\r\nUNION ALL\r\nSELECT 'Negotiation'
+    AS stage_name, 'SFU: Opportunity - Negotiation' AS conversion_name\r\nUNION ALL\r\nSELECT
+    'Offer' AS stage_name, 'SFU: Opportunity - Offer' AS conversion_name\r\nUNION
+    ALL\r\nSELECT 'Qualification' AS stage_name, 'SFU: Opportunity - Qualification'
+    AS conversion_name\r\nUNION ALL\r\nSELECT 'Technical Evaluation' AS stage_name,
+    'SFU: Opportunity - Technical Evaluation' AS conversion_name\r\nUNION ALL\r\nSELECT
+    'SAL' AS stage_name, 'SFU: Sales Accepted Lead' AS conversion_name\r\nUNION ALL\r\nSELECT
+    'SQL' AS stage_name, 'SFU: Sales Qualified Lead' AS conversion_name\r\nUNION ALL\r\nSELECT
+    'Closed Self Service' AS stage_name, 'SFU: Closed Self Service' AS conversion_name\r\nUNION
+    ALL\r\nSELECT 'Prospect' AS stage_name, 'SFU: Prospect' AS conversion_name\r\nUNION
+    ALL\r\nSELECT 'Sales Disqualified' AS stage_name, 'SFU: Sales Disqualified Lead'
+    AS conversion_name\r\nUNION ALL\r\nSELECT 'Sales Rejected' AS stage_name, 'SFU:
+    Sales Rejected Lead' AS conversion_name\r\nUNION ALL\r\nSELECT 'Sales Qualified'
+    AS stage_name, 'SFU: Sales Qualified Lead' AS conversion_name\r\nUNION ALL\r\nSELECT
+    'Marketing Qualified' AS stage_name, 'SFU: Marketing Qualified Lead' AS conversion_name"
+  description:
+  icon:
+  connection: connection:redshift-prod-emnify-dwh
