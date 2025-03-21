@@ -19,7 +19,7 @@ sync:test:
   source:
     type: segment
     connection_identifier: connection:redshift-prod-emnify-dwh
-    object_identifier: segment:google-ads-conversion-rating-14-days
+    object_identifier: segment:google-ads-conversion-rating-gclid-14-days
   mappings:
   - from:
       type: compound
