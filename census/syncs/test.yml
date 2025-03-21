@@ -1,7 +1,7 @@
 ---
 sync:test:
   paused: false
-  label: test
+  label: sync_google_ads_conversion_rating_gclid_14_days
   behavior:
     operation: upsert
   mapping_configuration:
