@@ -6,7 +6,8 @@ dataset:google-ads-conversion-rating:
     \       sobject,\r\n        record_type,\r\n        stage_name,\r\n        conversion_rating,\r\n
     \       cet_timestamp::TIMESTAMP AS cet_timestamp,\r\n        ad_user_data,\r\n
     \       ad_personalization,\r\n        sfdc_link,\r\n        edw_publn_id\r\nFROM
-    marketing.dm_google_ads_conversion_rating_enhanced"
+    marketing.dm_google_ads_conversion_rating_enhanced\r\nORDER BY cet_timestamp::TIMESTAMP
+    DESC"
   description:
   icon:
   connection: connection:redshift-prod-emnify-dwh
