@@ -1,7 +1,7 @@
 ---
 dataset:test-1:
   type: sql
-  name: test
+  name: google_ads_conversion_rating_gclid
   query: "SELECT \r\n        DISTINCT\r\n        SHA2(gclid_c || cet_timestamp ||
     conversion_name, 256) AS uid,\r\n        id,\r\n        gclid_c,\r\n        sobject,\r\n
     \       record_type,\r\n        stage_name,\r\n        conversion_rating,\r\n
