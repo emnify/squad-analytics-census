@@ -2,11 +2,11 @@
 dataset:test-2:
   type: sql
   name: dreamdata_contacts
-  query: "SELECT \r\n    is_primary_company,\r\n    email,\r\n    createdDate,\r\n
-    \   companyId,\r\n    website,\r\n    corporateEmail,\r\n    country,\r\n    jobTitle,\r\n
-    \   role,\r\n    name,\r\n    first_name,\r\n    last_name,\r\n    seniority_raw,\r\n
-    \   seniority,\r\n    additional_emails,\r\n    data_source,\r\n    source_system_id,\r\n
-    \   custom_properties,\r\n    audiences::VARCHAR\r\nFROM \"marketing\".\"stg_dreamdata_contacts\""
+  query: "SELECT \r\n    email,\r\n    createdDate,\r\n    companyId,\r\n    website,\r\n
+    \   corporateEmail,\r\n    country,\r\n    jobTitle,\r\n    role,\r\n    name,\r\n
+    \   first_name,\r\n    last_name,\r\n    seniority_raw,\r\n    seniority,\r\n
+    \   additional_emails,\r\n    data_source,\r\n    source_system_id,\r\n    custom_properties,\r\n
+    \   audiences::VARCHAR\r\nFROM \"marketing\".\"stg_dreamdata_contacts\""
   description:
   icon:
   connection: connection:redshift-prod-emnify-dwh
