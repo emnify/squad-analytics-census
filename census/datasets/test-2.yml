@@ -1,0 +1,8 @@
+---
+dataset:test-2:
+  type: sql
+  name: test
+  query: SELECT * FROM "marketing"."stg_dreamdata_contacts"
+  description:
+  icon:
+  connection: connection:redshift-prod-emnify-dwh
