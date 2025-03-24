@@ -2,9 +2,9 @@
 dataset:sync-log:
   type: sql
   name: sync_log_google_ads_conversion_rating_gclid
-  query: "SELECT \r\n        *,\r\n        record_identifier,\r\n        status,\r\n
-    \       batch_completed_at,\r\n        status,\r\n        record_payload\r\nFROM
-    CENSUS.SYNC_LOG \r\nWHERE sync_id = '3028531' \r\nAND status = 'succeeded'"
+  query: "SELECT \r\n        record_identifier,\r\n        status,\r\n        batch_completed_at,\r\n
+    \       status,\r\n        record_payload\r\nFROM CENSUS.SYNC_LOG \r\nWHERE sync_id
+    = '3028531' \r\nAND status = 'succeeded'"
   description:
   icon:
   connection: connection:redshift-prod-emnify-dwh
