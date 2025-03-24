@@ -1,7 +1,7 @@
 ---
 dataset:sync-log:
   type: sql
-  name: SYNC_LOG
+  name: google_ads_conversion_rating_gclid
   query: "SELECT \r\n        *,\r\n        record_identifier,\r\n        status,\r\n
     \       batch_completed_at,\r\n        status,\r\n        record_payload\r\nFROM
     CENSUS.SYNC_LOG \r\nWHERE sync_id = '3028531' \r\nAND status = 'succeeded'"
