@@ -1,0 +1,9 @@
+---
+dataset:sync-log:
+  type: sql
+  name: SYNC_LOG
+  query: "SELECT * FROM CENSUS.SYNC_LOG \r\nWHERE sync_id = '3028531' \r\nAND status
+    = 'succeeded'"
+  description:
+  icon:
+  connection: connection:redshift-prod-emnify-dwh
