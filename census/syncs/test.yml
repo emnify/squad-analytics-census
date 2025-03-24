@@ -81,7 +81,7 @@ sync:test:
   operational_settings:
     alerts:
     - type: FailureAlertConfiguration
-      send_for: first_time
+      send_for: every_time
       should_send_recovery: true
       options: {}
     - type: InvalidRecordPercentAlertConfiguration
