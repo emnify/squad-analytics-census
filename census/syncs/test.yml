@@ -15,6 +15,9 @@ sync:test:
         frequency: daily
         hour: 7
         minute: 0
+      dbt_cloud:
+        project_id: '110363'
+        job_id: '106779'
   destination:
     connection_identifier: connection:google-ads
     object_identifier: click_conversion_with_compound_key
