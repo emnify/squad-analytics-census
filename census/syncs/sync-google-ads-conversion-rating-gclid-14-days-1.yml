@@ -13,6 +13,7 @@ sync:sync-google-ads-conversion-rating-gclid-14-days-1:
     triggers:
       schedule:
         frequency: never
+      on_other_sync_success: sync:test
   destination:
     connection_identifier: connection:google-ads
     object_identifier: click_conversion_with_compound_key
