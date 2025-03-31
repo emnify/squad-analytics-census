@@ -2,16 +2,25 @@
 dataset:test-1:
   type: sql
   name: google_ads_conversion_rating_gclid
-  query: "SELECT \r\n        DISTINCT\r\n        SHA2(gclid_c || cet_timestamp ||
-    COALESCE(conversion_name,stage_name), 256) AS uid,\r\n        id,\r\n        gclid_c,\r\n
-    \       sobject,\r\n        record_type,\r\n        stage_name,\r\n        conversion_rating,\r\n
-    \       cet_timestamp::TIMESTAMP AS cet_timestamp,\r\n        ad_user_data,\r\n
-    \       ad_personalization,\r\n        conversion_name,\r\n        edw_publn_id\r\nFROM
-    marketing.dm_google_ads_conversion_rating_enhanced\r\nLEFT JOIN (\r\n            SELECT
-    \r\n                stage_name, \r\n                conversion_name\r\n            FROM
-    share_point_marketing.google_ads_conversion_name_lookup \r\n           ) AS l\r\n
-    \       USING(stage_name)\r\nWHERE 1=1\r\nAND gclid_c IS NOT NULL\r\nORDER BY
-    cet_timestamp::TIMESTAMP"
+  query: "WITH conversion_name_lookup AS (\r\n                                SELECT
+    \r\n                                        stage_name, \r\n                                        conversion_name\r\n
+    \                               FROM share_point_marketing.google_ads_conversion_name_lookup
+    \r\n                                )\r\n\r\nSELECT \r\n        DISTINCT\r\n        SHA2(gclid_c
+    || cet_timestamp || COALESCE(conversion_name,stage_name), 256) AS uid,\r\n        id,\r\n
+    \       gclid_c,\r\n        sobject,\r\n        record_type,\r\n        stage_name,\r\n
+    \       conversion_rating,\r\n        cet_timestamp::TIMESTAMP AS cet_timestamp,\r\n
+    \       ad_user_data,\r\n        ad_personalization,\r\n        conversion_name\r\nFROM
+    marketing.dm_google_ads_conversion_rating_enhanced\r\nLEFT JOIN conversion_name_lookup
+    AS l\r\n        USING(stage_name)\r\nWHERE 1=1\r\nAND gclid_c IS NOT NULL\r\nAND
+    SHA2(gclid_c || cet_timestamp || COALESCE(conversion_name,stage_name), 256) NOT
+    IN\r\n                                                                                        (\r\n
+    \                                                                                       SELECT
+    DISTINCT\r\n                                                                                                SHA2(record_payload.gclid_c::VARCHAR
+    || record_payload.cet_timestamp::TIMESTAMP || record_payload.conversion_name::VARCHAR,
+    256)\r\n                                                                                        FROM
+    CENSUS.SYNC_LOG \r\n                                                                                        WHERE
+    sync_id = '3028531' \r\n                                                                                        AND
+    status_message ILIKE '%CONVERSION_PRECEDES_EVENT%')\r\nORDER BY cet_timestamp::TIMESTAMP"
   description:
   icon:
   connection: connection:redshift-prod-emnify-dwh
