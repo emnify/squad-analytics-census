@@ -88,4 +88,3 @@ sync:redshift-google-ads-conversion-rating-adjustment-googleads-click-conversion
       should_send_recovery: true
       options:
         threshold: 75
-  sync_behavior_family: mapRecords
