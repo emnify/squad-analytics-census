@@ -12,7 +12,6 @@ sync:redshift-google-ads-conversion-rating-adjustment-googleads-click-conversion
     triggers:
       schedule:
         frequency: never
-      on_other_sync_success: sync:test
   destination:
     connection_identifier: connection:google-ads
     object_identifier: click_conversion_with_compound_key
