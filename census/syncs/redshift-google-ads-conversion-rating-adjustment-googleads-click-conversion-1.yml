@@ -1,7 +1,7 @@
 ---
 sync:redshift-google-ads-conversion-rating-adjustment-googleads-click-conversion-1:
   paused: false
-  label: sync_google_ads_conversion_rating_gclid_14_days
+  label: sync_google_ads_conversion_rating_gclid_adjustment
   behavior:
     operation: upsert
   mapping_configuration:
