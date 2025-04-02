@@ -1,6 +1,6 @@
 ---
 sync:redshift-google-ads-conversion-rating-adjustment-googleads-click-conversion-1:
-  paused: false
+  paused: true
   behavior:
     operation: upsert
   mapping_configuration:
