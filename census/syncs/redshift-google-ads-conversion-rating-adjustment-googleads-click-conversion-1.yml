@@ -15,7 +15,6 @@ sync:redshift-google-ads-conversion-rating-adjustment-googleads-click-conversion
         frequency: daily
         hour: 7
         minute: 0
-      on_other_sync_success: sync:test
   destination:
     connection_identifier: connection:google-ads
     object_identifier: click_conversion_with_compound_key
