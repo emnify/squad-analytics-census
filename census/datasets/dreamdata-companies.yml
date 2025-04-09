@@ -2,7 +2,18 @@
 dataset:dreamdata-companies:
   type: sql
   name: dreamdata_companies
-  query: SELECT * FROM "marketing"."int_dreamdata_companies"
+  query: "SELECT \r\n    dreamdata_company_id,\r\n    is_company_anonymous,\r\n    dreamdata_company_name,\r\n
+    \   dreamdata_company_created_at,\r\n    account_owner,\r\n    account_owner_email,\r\n
+    \   country,\r\n    account_segment,\r\n    account_status,\r\n    dreamdata_company_industry_raw,\r\n
+    \   dreamdata_company_industry,\r\n    account_use_case,\r\n    org_id,\r\n    region,\r\n
+    \   brown_or_greenfield,\r\n    is_target_account,\r\n    salesforce_account_link,\r\n
+    \   account_id,\r\n    dreamdata_company_website,\r\n    dreamdata_company_all_websites,\r\n
+    \   dreamdata_company_unique_websites,\r\n    dreamdata_company_linkedin_url,\r\n
+    \   dreamdata_company_annual_revenue,\r\n    dreamdata_company_number_of_employees,\r\n
+    \   last_activity_timestamp,\r\n    data_source,\r\n    is_from_primary_crm,\r\n
+    \   is_website_unique,\r\n    engagement_score,\r\n    source_system,\r\n    dreamdata_audiences,\r\n
+    \   s3_file_created_at,\r\n    dbt_updated_at\r\nFROM \"marketing\".\"int_dreamdata_companies\"\r\nORDER
+    BY dreamdata_company_created_at DESC\r\nLIMIT 100"
   description:
   icon:
   connection: connection:redshift-prod-emnify-dwh
