@@ -1,7 +1,7 @@
 ---
 dataset:dreamdata-contacts-100:
   type: sql
-  name: dreamdata_contacts_100
+  name: dreamdata_contacts_last_100
   query: "SELECT \r\n    email,\r\n    createdDate,\r\n    companyId,\r\n    website,\r\n
     \   corporateEmail,\r\n    country,\r\n    jobTitle,\r\n    role,\r\n    name,\r\n
     \   first_name,\r\n    last_name,\r\n    seniority_raw,\r\n    seniority,\r\n
