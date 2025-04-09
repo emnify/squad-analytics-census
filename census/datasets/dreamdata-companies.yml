@@ -12,8 +12,7 @@ dataset:dreamdata-companies:
     \   dreamdata_company_annual_revenue,\r\n    dreamdata_company_number_of_employees,\r\n
     \   last_activity_timestamp,\r\n    data_source,\r\n    is_from_primary_crm,\r\n
     \   is_website_unique,\r\n    engagement_score,\r\n    source_system,\r\n    dreamdata_audiences,\r\n
-    \   s3_file_created_at,\r\n    dbt_updated_at\r\nFROM \"marketing\".\"int_dreamdata_companies\"\r\nORDER
-    BY dreamdata_company_created_at DESC\r\nLIMIT 100"
+    \   s3_file_created_at,\r\n    dbt_updated_at\r\nFROM \"marketing\".\"int_dreamdata_companies\""
   description:
   icon:
   connection: connection:redshift-prod-emnify-dwh
