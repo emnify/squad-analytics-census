@@ -12,7 +12,9 @@ sync:test:
     type: triggered
     triggers:
       schedule:
-        frequency: never
+        frequency: daily
+        hour: 7
+        minute: 0
       dbt_cloud:
         project_id: '110363'
         job_id: '106779'
