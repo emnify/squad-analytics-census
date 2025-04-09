@@ -1,0 +1,13 @@
+---
+dataset:dreamdata-contacts-100:
+  type: sql
+  name: dreamdata_contacts_100
+  query: "SELECT \r\n    email,\r\n    createdDate,\r\n    companyId,\r\n    website,\r\n
+    \   corporateEmail,\r\n    country,\r\n    jobTitle,\r\n    role,\r\n    name,\r\n
+    \   first_name,\r\n    last_name,\r\n    seniority_raw,\r\n    seniority,\r\n
+    \   additional_emails,\r\n    data_source,\r\n    source_system_id,\r\n    custom_properties,\r\n
+    \   audiences\r\nFROM \"marketing\".\"stg_dreamdata_contacts\"\r\nORDER BY createdDate
+    DESC\r\nLIMIT 100"
+  description:
+  icon:
+  connection: connection:redshift-prod-emnify-dwh
