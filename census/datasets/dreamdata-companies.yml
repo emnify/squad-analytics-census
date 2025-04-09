@@ -1,0 +1,8 @@
+---
+dataset:dreamdata-companies:
+  type: sql
+  name: dreamdata_companies
+  query: SELECT * FROM "marketing"."int_dreamdata_companies"
+  description:
+  icon:
+  connection: connection:redshift-prod-emnify-dwh
