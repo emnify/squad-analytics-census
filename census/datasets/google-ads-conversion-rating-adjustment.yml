@@ -20,7 +20,9 @@ dataset:google-ads-conversion-rating-adjustment:
     256)\r\n                                                                                        FROM
     CENSUS.SYNC_LOG \r\n                                                                                        WHERE
     sync_id = '3028531' \r\n                                                                                        AND
-    status_message ILIKE '%CONVERSION_PRECEDES_EVENT%')\r\nORDER BY cet_timestamp::TIMESTAMP"
+    (status_message ILIKE '%CONVERSION_PRECEDES_EVENT%'\r\n                                                                                        OR
+    status_message ILIKE '%click occurred before this conversion%')\r\n                                                                                        )\r\nORDER
+    BY cet_timestamp::TIMESTAMP"
   description:
   icon:
   connection: connection:redshift-prod-emnify-dwh
