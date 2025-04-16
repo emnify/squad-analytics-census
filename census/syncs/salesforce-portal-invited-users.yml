@@ -1,6 +1,6 @@
 ---
 sync:salesforce-portal-invited-users:
-  paused: false
+  paused: true
   label: sync_portal->salesforce_ invited_users
   behavior:
     operation: upsert
