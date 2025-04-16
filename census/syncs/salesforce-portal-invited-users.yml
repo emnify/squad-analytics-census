@@ -1,7 +1,7 @@
 ---
 sync:salesforce-portal-invited-users:
   paused: false
-  label: sync_portal<->salesforce_ invited_users
+  label: sync_portal->salesforce_ invited_users
   behavior:
     operation: upsert
   mapping_configuration:
