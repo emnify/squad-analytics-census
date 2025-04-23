@@ -1,8 +1,0 @@
----
-dataset:invited-users-exclusion:
-  type: sql
-  name: invited_users_exclusion
-  query: "SELECT email\r\nFROM share_point_marketing.invited_users_exclusion"
-  description:
-  icon:
-  connection: connection:redshift-prod-emnify-dwh
