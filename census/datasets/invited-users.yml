@@ -1,0 +1,8 @@
+---
+dataset:invited-users:
+  type: sql
+  name: invited_users
+  query: SELECT * FROM "marketing"."int_portal_salesforce_contact_sync"
+  description:
+  icon:
+  connection: connection:redshift-prod-emnify-dwh
