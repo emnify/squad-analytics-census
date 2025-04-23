@@ -5,7 +5,8 @@ dataset:invited-users:
   query: "SELECT \r\n        '0120Y000000NEqsQAG' AS recordtype_id,\r\n        'EUR'
     AS currency,\r\n        account_id,\r\n        first_name,\r\n        last_name,\r\n
     \       email,\r\n        owner_id,\r\n        organisation_id,\r\n        'Portal
-    invited users sync with Census Reverse ETL' AS comments\r\nFROM \"marketing\".\"int_portal_salesforce_contact_sync\""
+    invited users sync with Census Reverse ETL' AS comments\r\nFROM \"marketing\".\"int_portal_salesforce_contact_sync\"\r\nWHERE
+    1=1\r\nAND email NOT IN (SELECT email FROM share_point_marketing.invited_users_exclusion)"
   description:
   icon:
   connection: connection:redshift-prod-emnify-dwh
