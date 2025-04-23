@@ -2,7 +2,10 @@
 dataset:invited-users:
   type: sql
   name: invited_users
-  query: SELECT * FROM "marketing"."int_portal_salesforce_contact_sync"
+  query: "SELECT \r\n        '0120Y000000NEqsQAG' AS recordtype_id,\r\n        'EUR'
+    AS currency,\r\n        account_id,\r\n        first_name,\r\n        last_name,\r\n
+    \       email,\r\n        owner_id,\r\n        organisation_id,\r\n        'Portal
+    invited users sync with Census Reverse ETL' AS comments\r\nFROM \"marketing\".\"int_portal_salesforce_contact_sync\""
   description:
   icon:
   connection: connection:redshift-prod-emnify-dwh
