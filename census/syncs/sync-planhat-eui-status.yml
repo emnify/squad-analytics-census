@@ -33,7 +33,7 @@ sync:sync-planhat-eui-status:
       data:
         column_name: eui_status
     to:
-      field_name: description
+      field_name: custom_field:EUI Status
   operational_settings:
     alerts:
     - type: FailureAlertConfiguration
