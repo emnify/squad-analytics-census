@@ -40,4 +40,3 @@ sync:sync-planhat-eui-status:
       send_for: every_time
       should_send_recovery: true
       options: {}
-  sync_behavior_family: mapRecords
