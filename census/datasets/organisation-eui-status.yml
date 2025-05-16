@@ -3,9 +3,9 @@ dataset:organisation-eui-status:
   type: sql
   name: organisation_eui_status
   query: "SELECT \r\n      organisation_id,\r\n    --   INITCAP(description) AS eui_status\r\n
-    \     '[\"Enabled\"]' AS eui_status\r\nFROM public.organisation AS o\r\nJOIN public.organisation_status
-    AS s\r\nON o.organisation_status_id = s.organisation_status_id\r\nWHERE organisation_id
-    IN (21744)\r\n-- 9646, 19359)\r\n\r\n"
+    \     Array(INITCAP(description)) AS eui_status\r\nFROM public.organisation AS
+    o\r\nJOIN public.organisation_status AS s\r\nON o.organisation_status_id = s.organisation_status_id\r\nWHERE
+    organisation_id IN (21744)\r\n-- 9646, 19359)\r\n\r\n"
   description:
   icon:
   connection: connection:redshift-prod-emnify-dwh
