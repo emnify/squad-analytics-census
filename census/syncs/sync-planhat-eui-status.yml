@@ -44,9 +44,4 @@ sync:sync-planhat-eui-status:
       send_for: first_time
       should_send_recovery: true
       options: {}
-    - type: InvalidRecordPercentAlertConfiguration
-      send_for: first_time
-      should_send_recovery: true
-      options:
-        threshold: 75
   sync_behavior_family: mapRecords
