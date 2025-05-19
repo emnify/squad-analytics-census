@@ -36,10 +36,6 @@ sync:sync-planhat-issued-sims:
       field_name: custom_field:Issued SIMs
   operational_settings:
     alerts:
-    - type: FailureAlertConfiguration
-      send_for: first_time
-      should_send_recovery: true
-      options: {}
     - type: InvalidRecordPercentAlertConfiguration
       send_for: first_time
       should_send_recovery: true
