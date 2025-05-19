@@ -12,7 +12,8 @@ sync:sync-planhat-ftm-sims:
     type: triggered
     triggers:
       schedule:
-        frequency: never
+        frequency: expression
+        cron_expression: "*/2 * * * * "
   destination:
     connection_identifier: connection:planhat
     object_identifier: company
