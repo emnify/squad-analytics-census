@@ -1,0 +1,10 @@
+---
+dataset:organisation-suspended-sims:
+  type: sql
+  name: organisation_suspended_sims
+  query: "SELECT \r\n      customer_org_id, \r\n      COUNT(sim_id) AS suspended_sims\r\nFROM
+    public.sim\r\nWHERE 1=1\r\nAND sim_status_id = 2\r\nAND customer_org_id IS NOT
+    NULL\r\nGROUP BY customer_org_id"
+  description:
+  icon:
+  connection: connection:redshift-prod-emnify-dwh
