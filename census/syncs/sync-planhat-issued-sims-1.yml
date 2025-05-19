@@ -1,0 +1,48 @@
+---
+sync:sync-planhat-issued-sims-1:
+  paused: false
+  label: sync_planhat_issued_sims
+  behavior:
+    operation: update
+  mapping_configuration:
+    sync_all_source_columns:
+      enabled: false
+      mode: add_only
+  mode:
+    type: triggered
+    triggers:
+      schedule:
+        frequency: never
+  destination:
+    connection_identifier: connection:planhat
+    object_identifier: company
+  source:
+    type: dataset
+    connection_identifier: connection:redshift-prod-emnify-dwh
+    object_identifier: dataset:organisation-suspended-sims
+  mappings:
+  - from:
+      type: column
+      data:
+        column_name: customer_org_id
+    to:
+      field_name: externalId
+    is_primary_identifier: true
+  - from:
+      type: column
+      data:
+        column_name: suspended_sims
+    to:
+      field_name: custom_field:Suspended SIMs
+  operational_settings:
+    alerts:
+    - type: FailureAlertConfiguration
+      send_for: first_time
+      should_send_recovery: true
+      options: {}
+    - type: InvalidRecordPercentAlertConfiguration
+      send_for: first_time
+      should_send_recovery: true
+      options:
+        threshold: 75
+  sync_behavior_family: mapRecords
