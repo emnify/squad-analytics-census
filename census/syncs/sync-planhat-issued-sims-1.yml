@@ -13,7 +13,7 @@ sync:sync-planhat-issued-sims-1:
     triggers:
       schedule:
         frequency: expression
-        cron_expression: 0 */2 * * *
+        cron_expression: "*/2 * * * * "
   destination:
     connection_identifier: connection:planhat
     object_identifier: company
