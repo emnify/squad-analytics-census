@@ -12,7 +12,8 @@ sync:sync-planhat-active-sims:
     type: triggered
     triggers:
       schedule:
-        frequency: never
+        frequency: expression
+        cron_expression: 0 */2 * * *
   destination:
     connection_identifier: connection:planhat
     object_identifier: company
