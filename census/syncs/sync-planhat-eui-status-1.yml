@@ -38,7 +38,7 @@ sync:sync-planhat-eui-status-1:
   operational_settings:
     alerts:
     - type: FailureAlertConfiguration
-      send_for: first_time
+      send_for: every_time
       should_send_recovery: true
       options: {}
   sync_behavior_family: mapRecords
