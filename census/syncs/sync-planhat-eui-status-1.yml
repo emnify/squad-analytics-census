@@ -37,9 +37,8 @@ sync:sync-planhat-eui-status-1:
       field_name: custom_field:Data Plans
   operational_settings:
     alerts:
-    - type: InvalidRecordPercentAlertConfiguration
+    - type: FailureAlertConfiguration
       send_for: first_time
       should_send_recovery: true
-      options:
-        threshold: 75
+      options: {}
   sync_behavior_family: mapRecords
