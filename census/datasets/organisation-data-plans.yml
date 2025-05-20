@@ -1,0 +1,28 @@
+---
+dataset:organisation-data-plans:
+  type: sql
+  name: organisation_data_plans
+  query: "WITH dim_organisation_filter AS (\r\n  SELECT organisation_id\r\n  FROM
+    core.dim_organisation\r\n  WHERE parent_organisation_id = 2\r\n)\r\n,\r\n\r\nbilling_flags
+    AS (\r\n  SELECT organisation_id, use_data_plan_data_allowance\r\n  FROM billing.organisation_billing_settings\r\n)\r\n\r\n,
+    orgs_with_v2_billing AS (\r\n  SELECT \r\n    dda.organisation_id,\r\n    o.name,\r\n
+    \   dda.tariff_id,\r\n    t.name AS tariff_name\r\n  FROM core.dim_data_allowance
+    dda\r\n  JOIN tariff t ON t.tariff_id = dda.tariff_id\r\n  JOIN core.dim_organisation
+    o ON o.organisation_id = dda.organisation_id\r\n  JOIN billing_flags bf ON bf.organisation_id
+    = dda.organisation_id AND bf.use_data_plan_data_allowance = true\r\n  JOIN dim_organisation_filter
+    f ON f.organisation_id = dda.organisation_id\r\n  WHERE CURRENT_DATE BETWEEN dda.start_date
+    AND COALESCE(dda.end_date, CURRENT_DATE + INTERVAL '1 day')\r\n    AND dda.deleted_at
+    IS NULL\r\n)\r\n\r\n, orgs_with_v1_billing AS (\r\n  SELECT \r\n    o.organisation_id,\r\n
+    \   o.organisation_name,\r\n    t.tariff_id,\r\n    t.name AS tariff_name\r\n
+    \ FROM tariff t\r\n  JOIN organisation_tariff_assignment ota ON ota.tariff_id
+    = t.tariff_id\r\n  JOIN core.dim_organisation o ON o.organisation_id = ota.organisation_id\r\n
+    \ LEFT JOIN billing_flags bf ON bf.organisation_id = o.organisation_id\r\n  JOIN
+    dim_organisation_filter f ON f.organisation_id = o.organisation_id\r\n  WHERE
+    t.tariff_status_id = 1 \r\n    AND COALESCE(bf.use_data_plan_data_allowance, false)
+    = false\r\n  GROUP BY 1, 2, 3, 4\r\n),\r\n\r\norganisation_tariffs AS (\r\nSELECT
+    * FROM orgs_with_v1_billing\r\nUNION\r\nSELECT * FROM orgs_with_v2_billing)\r\n\r\nSELECT
+    \r\n      organisation_id,\r\n      LISTAGG(tariff_name,', ') WITHIN GROUP (ORDER
+    BY tariff_name) AS data_plans\r\nFROM organisation_tariffs\r\nGROUP BY organisation_id"
+  description:
+  icon:
+  connection: connection:redshift-prod-emnify-dwh
