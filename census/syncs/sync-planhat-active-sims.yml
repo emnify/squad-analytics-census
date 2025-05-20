@@ -13,7 +13,6 @@ sync:sync-planhat-active-sims:
     triggers:
       schedule:
         frequency: never
-      on_other_sync_success: sync:sync-planhat-ftm-sims
   destination:
     connection_identifier: connection:planhat
     object_identifier: company
