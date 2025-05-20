@@ -14,6 +14,7 @@ sync:sync-planhat-active-sims:
       schedule:
         frequency: expression
         cron_expression: 0 */2 * * *
+      on_other_sync_success: sync:sync-planhat-ftm-sims
   destination:
     connection_identifier: connection:planhat
     object_identifier: company
