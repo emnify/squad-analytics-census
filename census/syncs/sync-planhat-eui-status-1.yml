@@ -12,8 +12,9 @@ sync:sync-planhat-eui-status-1:
     type: triggered
     triggers:
       schedule:
-        frequency: expression
-        cron_expression: 0 */4 * * *
+        frequency: daily
+        hour: 10
+        minute: 0
   destination:
     connection_identifier: connection:planhat
     object_identifier: company
