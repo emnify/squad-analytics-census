@@ -1,0 +1,14 @@
+---
+dataset:organisation-data-pool:
+  type: sql
+  name: organisation_data_pool
+  query: "WITH pool AS (\r\n                              SELECT \r\n                                  org_id,\r\n
+    \                                 data_traffic_volume AS data_pool,\r\n                                  ROW_NUMBER()
+    OVER(PARTITION BY org_id ORDER BY issued_date DESC) AS issued_date_rank\r\n                            FROM
+    share_point_finance.revenue_data_report\r\n                            WHERE 1=1\r\n
+    \                           AND org_id IN (11752, 16544, 11833)\r\n\r\n                             )\r\nSELECT
+    \r\n       org_id,\r\n       data_pool\r\nFROM pool\r\nWHERE issued_date_rank
+    = 1"
+  description:
+  icon:
+  connection: connection:redshift-prod-emnify-dwh
