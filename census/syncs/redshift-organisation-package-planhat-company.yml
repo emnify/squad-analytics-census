@@ -1,7 +1,7 @@
 ---
 sync:redshift-organisation-package-planhat-company:
   paused: false
-  label: sync_planhat_ftm_sims
+  label: sync_planhat_package
   behavior:
     operation: update
   mapping_configuration:
