@@ -6,7 +6,7 @@ dataset:organisation-features:
     \         CASE \r\n              WHEN b.description::TEXT ilike '%transit gateway
     breakout%' or b.description::TEXT ilike '%aws%transit%gateway%' THEN 'Transit
     Gateway Breakout'\r\n              WHEN b.description::TEXT ilike '%vpn%' OR b.description::TEXT
-    ilike '%ipsec%' THEN 'IPSec'\r\n          END AS feature\r\n          FROM\r\n
+    ilike '%ipsec%' THEN 'IPSec VPN'\r\n          END AS feature\r\n          FROM\r\n
     \         (\r\n            SELECT\r\n                  i.*,\r\n                  json_parse(json_container)
     as items,\r\n                  ROW_NUMBER() OVER(PARTITION BY customer_org_id
     ORDER BY issued_date DESC) AS issued_date_rank\r\n                  FROM invoice
