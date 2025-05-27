@@ -1,6 +1,6 @@
 ---
 sync:sync-planhat-data-pool:
-  paused: false
+  paused: true
   label: sync_planhat_data_pool
   behavior:
     operation: update
