@@ -1,0 +1,16 @@
+---
+dataset:organisation-package:
+  type: sql
+  name: organisation_package
+  query: "WITH pool AS (\r\n                              SELECT \r\n                                  org_id,\r\n
+    \                                 tariff_plan AS package,\r\n                                  tariff_plan_charges
+    AS package_cost,\r\n                                  ROW_NUMBER() OVER(PARTITION
+    BY org_id ORDER BY issued_date DESC) AS issued_date_rank\r\n                            FROM
+    share_point_finance.revenue_data_report\r\n                            WHERE 1=1\r\n
+    \                           AND org_id IN (11752, 25234, 2311)\r\n                            AND
+    tariff_plan ILIKE'% %'\r\n                             )\r\nSELECT \r\n       org_id,\r\n
+    \      package,\r\n       package_cost\r\nFROM pool\r\nWHERE issued_date_rank
+    = 1"
+  description:
+  icon:
+  connection: connection:redshift-prod-emnify-dwh
