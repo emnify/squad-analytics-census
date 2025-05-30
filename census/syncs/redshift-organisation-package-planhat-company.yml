@@ -12,7 +12,9 @@ sync:redshift-organisation-package-planhat-company:
     type: triggered
     triggers:
       schedule:
-        frequency: never
+        frequency: daily
+        hour: 10
+        minute: 0
   destination:
     connection_identifier: connection:planhat
     object_identifier: company
