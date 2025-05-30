@@ -7,7 +7,7 @@ dataset:organisation-package:
     AS package_cost,\r\n                                  ROW_NUMBER() OVER(PARTITION
     BY org_id ORDER BY issued_date DESC) AS issued_date_rank\r\n                            FROM
     share_point_finance.revenue_data_report\r\n                            WHERE 1=1\r\n
-    \                           AND org_id IN (11752, 25234, 2311)\r\n                            AND
+    \                           -- AND org_id IN (11752, 25234, 2311)\r\n                            AND
     tariff_plan ILIKE'% %'\r\n                             )\r\nSELECT \r\n       org_id,\r\n
     \      package,\r\n       package_cost\r\nFROM package\r\nWHERE issued_date_rank
     = 1"
