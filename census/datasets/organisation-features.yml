@@ -11,9 +11,9 @@ dataset:organisation-features:
     as items,\r\n                  ROW_NUMBER() OVER(PARTITION BY customer_org_id
     ORDER BY issued_date DESC) AS issued_date_rank\r\n                  FROM invoice
     i \r\n                  WHERE  1=1\r\n                    AND invoice_type_id
-    = 0\r\n                    AND customer_org_id IN (11752, 28828, 7921)\r\n              )
-    a,  a.items.invoice_items.data b\r\n            WHERE issued_date_rank = 1\r\n
-    \           )\r\n\r\nSELECT \r\n      customer_org_id,\r\n      LISTAGG(feature,',
+    = 0\r\n                    -- AND customer_org_id IN (11752, 28828, 7921)\r\n
+    \             ) a,  a.items.invoice_items.data b\r\n            WHERE issued_date_rank
+    = 1\r\n            )\r\n\r\nSELECT \r\n      customer_org_id,\r\n      LISTAGG(feature,',
     ') WITHIN GROUP (ORDER BY feature) AS features\r\nFROM invoice\r\nWHERE 1=1\r\nAND
     feature IS NOT NULL\r\nGROUP BY 1"
   description:
