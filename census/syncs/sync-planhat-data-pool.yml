@@ -38,10 +38,6 @@ sync:sync-planhat-data-pool:
       field_name: custom_field:Data Pool
   operational_settings:
     alerts:
-    - type: FailureAlertConfiguration
-      send_for: first_time
-      should_send_recovery: true
-      options: {}
     - type: InvalidRecordPercentAlertConfiguration
       send_for: first_time
       should_send_recovery: true
