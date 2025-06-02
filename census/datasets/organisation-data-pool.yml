@@ -6,15 +6,15 @@ dataset:organisation-data-pool:
     'YYYY-MM')) AS first_invoice_date \r\n  FROM billing.organisation_billing_settings
     bs\r\n  JOIN invoice i on i.customer_org_id = bs.organisation_id\r\n  WHERE bs.use_data_plan_data_allowance
     = true \r\n  AND bs.use_pre_generated_data = true\r\n  AND lower(i.json_container)
-    LIKE '%\"type\": \"data_allowance\"%'\r\n  AND organisation_id = 11676\r\n  GROUP
-    by 1\r\n),\r\n\r\ninclusive_volume_standard AS (\r\n                              SELECT
+    LIKE '%\"type\": \"data_allowance\"%'\r\n--   AND organisation_id = 11676\r\n
+    \ GROUP by 1\r\n),\r\n\r\ninclusive_volume_standard AS (\r\n                              SELECT
     \r\n                                    organisation_id,\r\n                                    ratezone_name,\r\n
     \                                   SUM(inclusive_volume) AS inclusive_volume\r\n
     \                             FROM core.dim_device\r\n                              LEFT
     JOIN ratezone ON ratezone.ratezone_id=dim_device.ratezone_id\r\n                              WHERE
     1=1\r\n                              AND activation_month::DATE = date_trunc('month',
     add_months(current_date, -1))\r\n                              AND ratezone.ratezone_status_id
-    = 1 \r\n                              AND organisation_id IN (11752)\r\n                              GROUP
+    = 1 \r\n                            --   AND organisation_id IN (11752)\r\n                              GROUP
     BY 1, 2\r\n                              ),\r\n\r\ninclusive_volume_migrated AS
     (\r\n                              SELECT \r\n                                    adm.organisation_id,\r\n
     \                                   ratezone_name,\r\n                                    SUM(cellular_inclusive_volume)
