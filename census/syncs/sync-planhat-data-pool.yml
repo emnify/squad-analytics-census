@@ -37,5 +37,9 @@ sync:sync-planhat-data-pool:
     to:
       field_name: custom_field:Data Pool
   operational_settings:
-    alerts: []
+    alerts:
+    - type: FailureAlertConfiguration
+      send_for: first_time
+      should_send_recovery: true
+      options: {}
   sync_behavior_family: mapRecords
