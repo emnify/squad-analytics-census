@@ -37,10 +37,5 @@ sync:sync-planhat-data-pool:
     to:
       field_name: custom_field:Data Pool
   operational_settings:
-    alerts:
-    - type: InvalidRecordPercentAlertConfiguration
-      send_for: first_time
-      should_send_recovery: true
-      options:
-        threshold: 75
+    alerts: []
   sync_behavior_family: mapRecords
